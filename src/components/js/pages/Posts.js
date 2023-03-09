@@ -12,6 +12,7 @@ function Posts() {
     const newFiles = files.map((fileName) => fileName.replace('./', ''));
 
     const file_name = newFiles[0];
+    const title = file_name.replace('.md', '');
     const [post, setPost] = useState('');
 
     return (
@@ -21,7 +22,7 @@ function Posts() {
                 <Sidebar className='sidebar' />
 
                 <div className='post_box'>
-                    <Upload file={ file_name } title={ file_name } date={ new Date() }/>
+                    <Upload file={ file_name } title={ title } date={ new Date() }/>
                 </div>
 
             </div>

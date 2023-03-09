@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import MarkDown from 'markdown-to-jsx';
+import { Link } from 'react-router-dom';
+import useFetch from './Fetch';
 
 
 function Upload( { file, title, date } ) {
 
     const file_name = file;
     const [post, setPost] = useState('');
+    useFetch(`/posts/${ title }`);
 
     useEffect(() => {
         import(`../../posts/${file_name}`)
@@ -19,6 +22,10 @@ function Upload( { file, title, date } ) {
 
     return (
         <div>
+            {/* <MarkDown> { post } </MarkDown> */}
+            <Link to={`/posts/${ title }`}>Test Post 
+            
+            </Link>
         </div>
     );
 }
